@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(geometric_shapes)
 
+if(MSVC)
+add_compile_options(/Zc:__cplusplus)
+add_definitions(-D_USE_MATH_DEFINES)
+else()
 add_compile_options(-std=c++11)
+endif()
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
 
@@ -15,6 +20,8 @@ if (NOT ASSIMP_FOUND)
   find_package(PkgConfig REQUIRED)
   # assimp is required, so REQUIRE the second attempt
   pkg_check_modules(ASSIMP REQUIRED assimp)
+else()
+link_directories(${ASSIMP_LIBRARY_DIRS})
 endif()
 
 find_package(Boost REQUIRED system filesystem)
