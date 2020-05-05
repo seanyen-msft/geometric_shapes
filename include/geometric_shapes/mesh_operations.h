@@ -42,7 +42,7 @@
 #include <vector>
 
 // forward declaration of aiScene (caller needs to include assimp if aiScene is used)
-class aiScene;
+struct aiScene;
 
 namespace shapes
 {
@@ -50,50 +50,64 @@ namespace shapes
 
     Triangles are constructed using index values from the triangles vector.
     Triangle k has vertices at index values triangles[3k], triangles[3k+1], triangles[3k+2] */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromVertices(const EigenSTL::vector_Vector3d& vertices, const std::vector<unsigned int>& triangles);
 
 /** \brief Load a mesh from a set of vertices.
 
     Every 3 vertices are considered a triangle. Repeating vertices are identified and
     the set of triangle indices is constructed. The normal at each triangle is also computed */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromVertices(const EigenSTL::vector_Vector3d& source);
 
 /** \brief Load a mesh from a resource that contains a mesh that can be loaded by assimp */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromResource(const std::string& resource);
 
 /** \brief Load a mesh from a resource that contains a mesh that can be loaded by assimp */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromResource(const std::string& resource, const Eigen::Vector3d& scale);
 
 /** \brief Load a mesh from a binary stream that contains a mesh that can be loaded by assimp */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromBinary(const char* buffer, std::size_t size, const std::string& assimp_hint = std::string());
 
 /** \brief Load a mesh from a resource that contains a mesh that can be loaded by assimp */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromBinary(const char* buffer, std::size_t size, const Eigen::Vector3d& scale,
                            const std::string& assimp_hint = std::string());
 
 /** \brief Load a mesh from an assimp datastructure */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromAsset(const aiScene* scene, const Eigen::Vector3d& scale,
                           const std::string& assimp_hint = std::string());
 
 /** \brief Load a mesh from an assimp datastructure */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromAsset(const aiScene* scene, const std::string& assimp_hint = std::string());
 
 /** \brief Construct a mesh from a primitive shape that is NOT already a mesh. This call allocates a new object. */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromShape(const Shape* shape);
 
 /** \brief Construct a mesh from a box */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromShape(const Box& box);
 
 /** \brief Construct a mesh from a sphere */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromShape(const Sphere& sphere);
 
 /** \brief Construct a mesh from a cylinder */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromShape(const Cylinder& cylinder);
 
 /** \brief Construct a mesh from a cone */
+GEOMETRIC_SHAPES_PUBLIC
 Mesh* createMeshFromShape(const Cone& cone);
 
 /** \brief Write the mesh to a buffer in STL format */
+GEOMETRIC_SHAPES_PUBLIC
 void writeSTLBinary(const Mesh* mesh, std::vector<char>& buffer);
 }  // namespace shapes
 

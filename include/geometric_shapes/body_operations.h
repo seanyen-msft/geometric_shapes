@@ -47,18 +47,23 @@
 namespace bodies
 {
 /** \brief Create a body from a given shape */
+GEOMETRIC_SHAPES_PUBLIC
 Body* createEmptyBodyFromShapeType(const shapes::ShapeType& shapeType);
 
 /** \brief Create a body from a given shape */
+GEOMETRIC_SHAPES_PUBLIC
 Body* createBodyFromShape(const shapes::Shape* shape);
 
 /** \brief Create a body from a given shape */
+GEOMETRIC_SHAPES_PUBLIC
 Body* constructBodyFromMsg(const shape_msgs::msg::Mesh& shape, const geometry_msgs::msg::Pose& pose);
 
 /** \brief Create a body from a given shape */
+GEOMETRIC_SHAPES_PUBLIC
 Body* constructBodyFromMsg(const shape_msgs::msg::SolidPrimitive& shape, const geometry_msgs::msg::Pose& pose);
 
 /** \brief Create a body from a given shape */
+GEOMETRIC_SHAPES_PUBLIC
 Body* constructBodyFromMsg(const shapes::ShapeMsg& shape, const geometry_msgs::msg::Pose& pose);
 
 /** \brief Get a shape that corresponds to this (scaled and padded) body. */
@@ -68,12 +73,15 @@ shapes::ShapeConstPtr constructShapeFromBody(const bodies::Body* body);
 void constructMarkerFromBody(const bodies::Body* body, visualization_msgs::msg::Marker& msg);
 
 /** \brief Compute a bounding sphere to enclose a set of bounding spheres */
+GEOMETRIC_SHAPES_PUBLIC
 void mergeBoundingSpheres(const std::vector<BoundingSphere>& spheres, BoundingSphere& mergedSphere);
 
 /** \brief Compute an axis-aligned bounding box to enclose a set of bounding boxes. */
+GEOMETRIC_SHAPES_PUBLIC
 void mergeBoundingBoxes(const std::vector<AABB>& boxes, AABB& mergedBox);
 
 /** \brief Compute the bounding sphere for a set of \e bodies and store the resulting sphere in \e mergedSphere */
+GEOMETRIC_SHAPES_PUBLIC
 void computeBoundingSphere(const std::vector<const Body*>& bodies, BoundingSphere& mergedSphere);
 }  // namespace bodies
 #endif

@@ -35,32 +35,38 @@
 #pragma once
 
 #include <shape_msgs/msg/solid_primitive.hpp>
+#include <geometric_shapes/visibility_control.hpp>
 
 namespace geometric_shapes
 {
 /** Get the number of dimensions of a particular shape */
 template <int>
+GEOMETRIC_SHAPES_PUBLIC
 constexpr unsigned int solidPrimitiveDimCount();
 
 template <>
+GEOMETRIC_SHAPES_PUBLIC
 constexpr unsigned int solidPrimitiveDimCount<shape_msgs::msg::SolidPrimitive::SPHERE>()
 {
   return 1u;
 }
 
 template <>
+GEOMETRIC_SHAPES_PUBLIC
 constexpr unsigned int solidPrimitiveDimCount<shape_msgs::msg::SolidPrimitive::BOX>()
 {
   return 3u;
 }
 
 template <>
+GEOMETRIC_SHAPES_PUBLIC
 constexpr unsigned int solidPrimitiveDimCount<shape_msgs::msg::SolidPrimitive::CYLINDER>()
 {
   return 2u;
 }
 
 template <>
+GEOMETRIC_SHAPES_PUBLIC
 constexpr unsigned int solidPrimitiveDimCount<shape_msgs::msg::SolidPrimitive::CONE>()
 {
   return 2u;

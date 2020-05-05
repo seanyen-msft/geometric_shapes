@@ -38,7 +38,7 @@
 #define GEOMETRIC_SHAPES_SHAPES_
 
 #if __cplusplus <= 199711L
-#error This header requires at least C++11
+//#error This header requires at least C++11
 #endif
 
 #include <cstdlib>
@@ -46,6 +46,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <geometric_shapes/visibility_control.hpp>
 
 namespace octomap
 {
@@ -71,10 +72,11 @@ enum ShapeType
 };
 
 /* convert above enum to printable */
+GEOMETRIC_SHAPES_PUBLIC
 std::ostream& operator<<(std::ostream& ss, ShapeType type);
 
 /** \brief A basic definition of a shape. Shapes are considered centered at origin */
-class Shape
+class GEOMETRIC_SHAPES_PUBLIC Shape
 {
 public:
   Shape();
@@ -103,7 +105,7 @@ public:
 };
 
 /** \brief Definition of a sphere */
-class Sphere : public Shape
+class GEOMETRIC_SHAPES_PUBLIC Sphere : public Shape
 {
 public:
   Sphere();
@@ -124,7 +126,7 @@ public:
 
 /** \brief Definition of a cylinder
  * Length is along z axis.  Origin is at center of mass. */
-class Cylinder : public Shape
+class GEOMETRIC_SHAPES_PUBLIC Cylinder : public Shape
 {
 public:
   using Shape::padd;
@@ -175,7 +177,7 @@ public:
 /** \brief Definition of a cone
  * Tip is on positive z axis.  Center of base is on negative z axis.  Origin is
  * halway between tip and center of base. */
-class Cone : public Shape
+class GEOMETRIC_SHAPES_PUBLIC Cone : public Shape
 {
 public:
   using Shape::padd;
@@ -223,7 +225,7 @@ public:
 
 /** \brief Definition of a box
  * Aligned with the XYZ axes. */
-class Box : public Shape
+class GEOMETRIC_SHAPES_PUBLIC Box : public Shape
 {
 public:
   using Shape::padd;
@@ -278,7 +280,7 @@ public:
  * padding value is added to the length of the direction vector between centroid
  * and each vertex.
  * */
-class Mesh : public Shape
+class GEOMETRIC_SHAPES_PUBLIC Mesh : public Shape
 {
 public:
   using Shape::padd;
@@ -363,7 +365,7 @@ public:
 };
 
 /** \brief Definition of a plane with equation ax + by + cz + d = 0 */
-class Plane : public Shape
+class GEOMETRIC_SHAPES_PUBLIC Plane : public Shape
 {
 public:
   Plane();
@@ -382,7 +384,7 @@ public:
 };
 
 /** \brief Representation of an octomap::OcTree as a Shape */
-class OcTree : public Shape
+class GEOMETRIC_SHAPES_PUBLIC OcTree : public Shape
 {
 public:
   OcTree();
@@ -400,9 +402,11 @@ public:
 };
 
 /** \brief Shared pointer to a Shape */
+GEOMETRIC_SHAPES_PUBLIC
 typedef std::shared_ptr<Shape> ShapePtr;
 
 /** \brief Shared pointer to a const Shape */
+GEOMETRIC_SHAPES_PUBLIC
 typedef std::shared_ptr<const Shape> ShapeConstPtr;
 }  // namespace shapes
 

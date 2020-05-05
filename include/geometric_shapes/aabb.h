@@ -38,11 +38,12 @@
 #define GEOMETRIC_SHAPES_AABB_H
 
 #include <Eigen/Geometry>
+#include <geometric_shapes/visibility_control.hpp>
 
 namespace bodies
 {
 /** \brief Represents an axis-aligned bounding box. */
-class AABB : public Eigen::AlignedBox3d
+class GEOMETRIC_SHAPES_PUBLIC AABB : public Eigen::AlignedBox3d
 {
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 

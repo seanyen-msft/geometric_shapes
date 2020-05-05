@@ -43,12 +43,13 @@
 #include <boost/variant.hpp>
 
 #if __cplusplus <= 199711L
-#error This header requires at least C++11 (boost::variant is incompatible between c++98 and c++11 and we enforce 11)
+//#error This header requires at least C++11 (boost::variant is incompatible between c++98 and c++11 and we enforce 11)
 #endif
 
 namespace shapes
 {
 /** \brief Type that can hold any of the desired shape message types */
+GEOMETRIC_SHAPES_PUBLIC
 typedef boost::variant<shape_msgs::msg::SolidPrimitive, shape_msgs::msg::Mesh, shape_msgs::msg::Plane> ShapeMsg;
 }
 

@@ -38,6 +38,7 @@
 #include <shape_msgs/msg/solid_primitive.hpp>
 #include <shape_msgs/msg/mesh.hpp>
 #include <visualization_msgs/msg/marker.hpp>
+#include <geometric_shapes/visibility_control.hpp>
 
 namespace geometric_shapes
 {
@@ -46,12 +47,14 @@ namespace geometric_shapes
     The corresponding marker will be constructed as a LINE_LIST (if \e use_mesh_triangle_list
     is false) or as a TRIANGLE_LIST (if \e use_mesh_triangle_list is true).
     On incorrect input, this function throws a std::runtime_error. */
+GEOMETRIC_SHAPES_PUBLIC
 void constructMarkerFromShape(const shape_msgs::msg::Mesh& shape_msg, visualization_msgs::msg::Marker& marker,
                               bool use_mesh_triangle_list = true);
 
 /** \brief Convert a shape_msgs::msg::SolidPrimitive \e shape_msg to a visualization_msgs::msg::Marker \e marker.
 
     On incorrect input, this function throws a std::runtime_error. */
+GEOMETRIC_SHAPES_PUBLIC
 void constructMarkerFromShape(const shape_msgs::msg::SolidPrimitive& shape_msg,
                               visualization_msgs::msg::Marker& marker);
 }  // namespace geometric_shapes

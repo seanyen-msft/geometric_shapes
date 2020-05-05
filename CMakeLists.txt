@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(geometric_shapes)
 
+set(CURL_NO_CURL_CMAKE ON)
+
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
@@ -95,6 +97,12 @@ if(BUILD_TESTING)
   # Unit tests
   add_subdirectory(test)
 endif()
+
+# Causes the visibility macros to use dllexport rather than dllimport,
+# which is appropriate when building the dll but not consuming it.
+target_compile_definitions(${PROJECT_NAME}
+  PRIVATE "GEOMETRIC_SHAPES_BUILDING_LIBRARY")
+
 
 install(TARGETS ${PROJECT_NAME}
         ARCHIVE DESTINATION lib

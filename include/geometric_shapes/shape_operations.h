@@ -46,40 +46,52 @@
 namespace shapes
 {
 /** \brief Construct the shape that corresponds to the message. Return NULL on failure. */
+GEOMETRIC_SHAPES_PUBLIC
 Shape* constructShapeFromMsg(const shape_msgs::msg::SolidPrimitive& shape_msg);
 
 /** \brief Construct the shape that corresponds to the message. Return NULL on failure. */
+GEOMETRIC_SHAPES_PUBLIC
 Shape* constructShapeFromMsg(const shape_msgs::msg::Plane& shape_msg);
 
 /** \brief Construct the shape that corresponds to the message. Return NULL on failure. */
+GEOMETRIC_SHAPES_PUBLIC
 Shape* constructShapeFromMsg(const shape_msgs::msg::Mesh& shape_msg);
 
 /** \brief Construct the shape that corresponds to the message. Return NULL on failure. */
+GEOMETRIC_SHAPES_PUBLIC
 Shape* constructShapeFromMsg(const ShapeMsg& shape_msg);
 
 /** \brief Construct the message that corresponds to the shape. Return false on failure. */
+GEOMETRIC_SHAPES_PUBLIC
 bool constructMsgFromShape(const Shape* shape, ShapeMsg& shape_msg);
 
 /** \brief Construct the marker that corresponds to the shape. Return false on failure. */
+GEOMETRIC_SHAPES_PUBLIC
 bool constructMarkerFromShape(const Shape* shape, visualization_msgs::msg::Marker& mk,
                               bool use_mesh_triangle_list = false);
 
 /** \brief Compute the extents of a shape */
+GEOMETRIC_SHAPES_PUBLIC
 Eigen::Vector3d computeShapeExtents(const ShapeMsg& shape_msg);
 
 /** \brief Compute the extents of a shape */
+GEOMETRIC_SHAPES_PUBLIC
 Eigen::Vector3d computeShapeExtents(const Shape* shape);
 
 /** \brief Compute a sphere bounding a shape */
+GEOMETRIC_SHAPES_PUBLIC
 void computeShapeBoundingSphere(const Shape* shape, Eigen::Vector3d& center, double& radius);
 
 /** \brief Get the string name of the shape */
+GEOMETRIC_SHAPES_PUBLIC
 const std::string& shapeStringName(const Shape* shape);
 
 /** \brief Save all the information about this shape as plain text */
+GEOMETRIC_SHAPES_PUBLIC
 void saveAsText(const Shape* shape, std::ostream& out);
 
 /** \brief Construct a shape from plain text description */
+GEOMETRIC_SHAPES_PUBLIC
 Shape* constructShapeFromText(std::istream& in);
 }  // namespace shapes
 

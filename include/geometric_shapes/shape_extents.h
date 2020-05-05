@@ -37,14 +37,17 @@
 
 #include <shape_msgs/msg/solid_primitive.hpp>
 #include <shape_msgs/msg/mesh.hpp>
+#include <geometric_shapes/visibility_control.hpp>
 
 namespace geometric_shapes
 {
 /** \brief Get the dimensions of an axis-aligned bounding box for the shape described by \e shape_msg */
+GEOMETRIC_SHAPES_PUBLIC
 void getShapeExtents(const shape_msgs::msg::SolidPrimitive& shape_msg, double& x_extent, double& y_extent,
                      double& z_extent);
 
 /** \brief Get the dimensions of an axis-aligned bounding box for the shape described by \e shape_msg */
+GEOMETRIC_SHAPES_PUBLIC
 void getShapeExtents(const shape_msgs::msg::Mesh& shape_msg, double& x_extent, double& y_extent, double& z_extent);
 }
 
