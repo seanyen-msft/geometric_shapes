@@ -31,6 +31,8 @@
 *  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 #include <geometric_shapes/body_operations.h>
 #include <geometric_shapes/shape_operations.h>

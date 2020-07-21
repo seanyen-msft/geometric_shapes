@@ -92,6 +92,8 @@ target_link_libraries(${PROJECT_NAME}
   resource_retriever::resource_retriever
 )
 
+set_target_properties(${PROJECT_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
+
 if(BUILD_TESTING)
   find_package(ament_cmake_gtest REQUIRED)
   # Unit tests
