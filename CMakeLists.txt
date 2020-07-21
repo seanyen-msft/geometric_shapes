@@ -81,7 +81,7 @@ ament_export_dependencies(
   Eigen3
   eigen3_cmake_module  # export Eigen3 headers
   Boost
-  ASSIMP
+  # ASSIMP
   random_numbers
   eigen_stl_containers
   shape_msgs
